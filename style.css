@@ -1,0 +1,389 @@
+/* Basic page style resets */
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+
+/* Import fonts */
+@font-face {
+  font-family: "AlteGrotesk";
+  src: url("https://cdn.glitch.global/8f0c694d-e7c1-48d5-943a-7f049ffe4de3/AlteHaasGroteskRegular.ttf?v=1654186988760");
+}
+@font-face {
+  font-family: "AlteGrotesk";
+  font-weight: bold;
+  src: url("https://cdn.glitch.global/8f0c694d-e7c1-48d5-943a-7f049ffe4de3/AlteHaasGroteskBold.ttf?v=1654186988587");
+}
+
+@font-face {
+  font-family: "softpower";
+  src: url("https://cdn.glitch.global/8f0c694d-e7c1-48d5-943a-7f049ffe4de3/NewEdgeSoftPower4-LightRounded.otf?v=1654188541585");
+}
+
+@font-face {
+  font-family: "ARK-ES";
+  src: url("https://cdn.glitch.global/8f0c694d-e7c1-48d5-943a-7f049ffe4de3/ARK-ES-DenseRegular.woff?v=1654883255266");
+}
+
+/* COLORS
+#BDFF55 - Lime
+#5C0CF4 - Indigo
+#FF8D8A - Salmon
+#32B29A - Teal
+
+*/
+
+/* BASICS*/
+
+html{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
+}
+
+body {
+  background-color: #5c0cf4;
+  color: #bdff55;
+  overflow-x: hidden;
+  font-size: 16px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+main {
+/*   display: flex;
+  flex-direction: column; */
+}
+
+a {
+  text-decoration: none;
+  color: #32b29a;
+}
+
+a:hover {
+  filter: blur(1px);
+  font-style: italic;
+}
+
+canvas {
+  /*   padding: 2em; */
+  background-size: cover;
+}
+
+#graphix {
+  height: 100vh;
+  cursor: pointer;
+}
+
+p {
+  font-family: "softpower", "AlteGrotesk", sans-serif;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 1em;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+
+/* NAV*/
+
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: "AlteGrotesk", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /*   margin: 0 1em; */
+  padding: 0 2em;
+  z-index: 1;
+}
+
+#logo {
+  width: 15vw;
+}
+
+#logo-text {
+  font-size: 2.5em;
+  font-family: "Alte-Grotesk", sans-serif;
+  font-weight: bold;
+  color: #32b29a;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  filter: none;
+}
+
+#un:hover {
+  filter: none;
+  font-style: normal;
+}
+
+h2 {
+  padding: 0.5em;
+  
+  background-color: #bdff55;
+  color: #5c0cf4;
+
+  box-shadow: inset 0.1em 0.1em 0.5em green;
+  border-radius: 2em;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+}
+
+.nav:hover {
+  filter: none;
+  font-style: normal;
+}
+
+.nav h2:hover {
+  background-color: #32b29a;
+}
+
+.active {
+  transition: background-color 0.5s;
+  background-color: #32b29a;
+}
+
+/* LANG MENU */
+
+.translation-menu {
+  position: fixed;
+  height: 100vh;
+  margin: 0;
+  right: 0;
+  z-index: 2;
+  width: 0;
+  background-color: #ff8d8a;
+  transition: width 1s;
+  color: black;
+  overflow-y: hidden;
+  border-radius: 2em 0 0;
+  font-family: "AlteGrotesk", sans-serif;
+  font-weight: bold;
+
+  box-shadow: 0px 0px 8px 2px;
+  
+
+}
+
+.lang {
+  color: #5c0cf4;
+}
+
+.lang:hover {
+  filter: none;
+  font-style: normal;
+  color: #bdff55;
+}
+
+#trans:hover {
+  background-color: #32b29a;
+}
+
+ul {
+  list-style: none;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+
+  margin: 4em 2em 0; 
+
+}
+
+li {
+  padding: 1em;
+  border: 2px solid #5c0cf4; 
+  border-top: none !important;
+
+}
+
+li:hover {
+  background-color: #5c0cf4;
+ box-shadow: inset 0.1em 0.1em 0.5em black;
+}
+
+ .lang:nth-child(1) {
+  border-top: 2px solid #5c0cf4;
+} 
+
+.close {
+  float: right;
+  padding: 0.6em 1em;
+  margin: 1em;
+  background-color: #32b29a;
+  border-radius: 100%;
+  font-size: 20px;
+  color: #5c0cf4;
+  box-shadow: inset 0.1em 0.1em 0.5em black;
+}
+
+.close:hover {
+  background-color: #5c0cf4;
+  color: #32b29a;
+  border: 1px solid black;
+/*   box-shadow:0.2em 0.1em 0 black; */
+}
+
+/* SECTIONS LAYOUT*/
+
+.section-heading h1 {
+  font-family: "ARK-ES", sans-serif;
+  font-weight: normal;
+  font-size: 9em;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #bdff55;
+  /*   text-shadow: 2px 2px green; */
+  filter: drop-shadow(2px 2px 0.15rem green);
+  /*   color: #32B29A; */
+  color: transparent;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+#about-head {
+  -webkit-text-stroke-color: #32b29a;
+  /*   text-shadow: 2px 2px green; */
+  filter: drop-shadow(2px 2px 0.15rem green);
+  margin-top: 0.5em;
+}
+
+.call,
+.submission {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /*   flex-wrap: wrap; */
+  margin-bottom: 3em;
+  width: 100vw;
+}
+
+.call {
+  background-color: #bdff55;
+  color: black;
+}
+
+.call-text {
+  flex-basis: 60%;
+  flex-grow: 0;
+  padding: 2em;
+}
+
+.left {
+  flex-basis: 40%;
+  flex-grow: 0;
+}
+
+
+#subject-line{
+  color:#32B29A;
+  font-style: italic;
+}
+
+
+footer {
+  background-color: #ff8d8a;
+/*   box-shadow: 0px -1px 20px black; */
+
+
+}
+
+footer p {
+  font-size: 0.75em;
+  color: #5c0cf4;
+/*   align-self: flex-end; */
+  padding: 1.5em;
+}
+
+.site-credits-menu{
+  display: flex;
+  flex-direction: row;
+  flex-direction: row-reverse;
+}
+
+.tab{
+  overflow: hidden;
+  height: 10vh;
+  transition: height 1s ease;
+}
+
+.tab.open{
+  height: initial;
+  max-height: 50vh;
+
+}
+
+.cred-menu:hover{
+  text-decoration: underline;
+}
+
+.credits{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  font-size: 1.25em;
+  padding: 1em;
+}
+
+.credits p{
+  padding: 0;
+}
+
+
+
+/* MEDIA QUEERIES */
+
+@media only screen and (max-width: 700px) {
+  body {
+    font-size: 0.75em;
+  }
+
+  header {
+    background-color: #5c0cf4;
+  }
+
+  header h1 {
+    flex-basis: 100%;
+  }
+
+  .section-heading h1 {
+    font-size: 6em;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  #about-head {
+  color: #32b29a;
+}
+   #submit-head {
+  color:#BDFF55;
+}
+
+  .call,
+  .submission {
+    margin-top: 160px;
+    flex-wrap: wrap;
+  }
+  .call-text {
+    flex-basis: 100%;
+    padding: 0px 1rem;
+  }
+
+  .left {
+    flex-basis: 100%;
+  }
+
+  .call p {
+    /*     margin: unset; */
+  }
+}
