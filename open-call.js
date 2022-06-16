@@ -13,6 +13,12 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 camera.position.set(0, 0, 140);
+  if(window.outerWidth <= 375 || window.outerWidth <= 800){
+     camera.position.set(0,20,200);
+   } else{
+     camera.position.set(0,0,140);
+   }
+
 
 const canvas = document.querySelector(".graphic");
 
@@ -48,7 +54,7 @@ scene.background = new THREE.Color("#5C0CF4");
 //scene.background = new THREE.Color("black");
 
 const openCall = await loader.loadAsync(
-  "https://cdn.glitch.global/8f0c694d-e7c1-48d5-943a-7f049ffe4de3/open-call-reduced.glb?v=1655157044196"
+  "https://cdn.glitch.global/8f0c694d-e7c1-48d5-943a-7f049ffe4de3/reduced_open_call.glb?v=1655268571238"
 );
 const squiggle = await loader.loadAsync(
   "https://cdn.glitch.global/8f0c694d-e7c1-48d5-943a-7f049ffe4de3/open-call-squiggle-reduced.glb?v=1655157536053"
@@ -57,11 +63,6 @@ const squiggle = await loader.loadAsync(
 scene.add(openCall.scene);
 scene.add(squiggle.scene);
 
-// console.log(scene.children)
-// let allLetters = [o,p,e,n,c,a,l1,l2];
-// console.log(o.scene.children)
-
-// let letters = {};
 
 let letters = {
   o: {
@@ -126,7 +127,6 @@ let letters = {
 
 renderer.domElement.addEventListener("mousemove", onPointerMove, false);
 //raycasting
-
 // const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
@@ -180,12 +180,22 @@ function onWindowResize() {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.render(scene, camera);
+  
+//    if(window.outerWidth <= 375 || window.outerWidth <= 800){
+//      camera.position.set(0,20,200);
+//    } else{
+//      camera.position.set(0,0,140);
+//    }
+  
+
 }
+
+
+
+
 
 function animate() {
 
-
-  
   
   // testbench for if we want lightweight alt to raycast
   // var test = scene.getObjectByName("c");
@@ -205,25 +215,11 @@ function animate() {
 
 //   console.log(pos);
 
-  
-  
-  
-  
+ 
   
   
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
-
-  //         if (object) {
-  //           object.rotation.z += 0.01*Math.min(movementX, 10);
-  //           movementX *= 0.99;
-
-  //           object.rotation.y += 0.01*Math.min(movementY, 10);
-  //           movementY *= 0.99;
-
-  //           // object.rotation.z *= 0.9;
-  //           // object.rotation.y *= 0.9;
-  //         }
 
   Object.keys(letters).forEach((letterName) => {
     let currentLetter = scene.getObjectByName(letterName);
